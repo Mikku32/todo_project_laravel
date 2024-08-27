@@ -2,7 +2,10 @@
 @section('content')
 
 <div class="  py-8 px-4 min-h-screen bg-slate-300">
-    <h1 class="text-4xl font-bold mb-4">Todos</h1>
+    <div class="flex justify-between">
+        <h1 class="text-4xl font-bold mb-4">Todos</h1>
+
+    </div>
     <div class="flex flex-col gap-4 px-3 ">
         @foreach ($todos as $t)
             <div class="w-full rounded overflow-hidden shadow-lg bg-gradient-to-r from-violet-200 to-fuchsia-200">
@@ -19,6 +22,8 @@
                 </div>
             </div>
         @endforeach
+
     </div>
+
 </div>
 @endsection
