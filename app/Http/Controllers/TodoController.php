@@ -38,4 +38,24 @@ class TodoController extends Controller
 
         return view('todos.details', compact('todo'));
     }
+    public function edit(Request $request, Todo $todo)
+    {
+        return view('todos.edit', compact('todo'));
+    }
+
+
+
+
+    public function update(Request $request, Todo $todo)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        $todo->update($request->all());
+
+        $todo->save();
+        return redirect()->route('home');
+    }
 }

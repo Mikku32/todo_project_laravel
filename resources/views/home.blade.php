@@ -22,9 +22,11 @@
                     </div>
                 </div>
 
-                <div class="py-4 px-3 items-center flex justify-end">
+                <div class="py-4  items-center flex justify-end">
+                    <a href="{{ route('todoUpdate', ['todo' => $t->id]) }}"
+                        class="text-blue-700  h-9 hover:text-blue-900 hover:underline font-semibold  py-2 rounded">Edit</a>
                     <a href=""
-                        class="text-blue-500  h-9 hover:text-blue-700 hover:underline font-semibold  py-2 px-4 rounded">Edit</a>
+                        class="text-red-700  h-9 hover:text-red-900 hover:underline font-semibold  py-2 px-4 rounded">Delete</a></a>
                 </div>
             </div>
         @endforeach
