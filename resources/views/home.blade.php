@@ -25,8 +25,12 @@
                 <div class="py-4  items-center flex justify-end">
                     <a href="{{ route('todoUpdate', ['todo' => $t->id]) }}"
                         class="text-blue-700  h-9 hover:text-blue-900 hover:underline font-semibold  py-2 rounded">Edit</a>
-                    <a href=""
-                        class="text-red-700  h-9 hover:text-red-900 hover:underline font-semibold  py-2 px-4 rounded">Delete</a></a>
+                    <form action="{{ route('todoDelete', ['todo' => $t->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                            class="text-red-700 px-4 h-9 hover:text-red-900 hover:underline font-semibold  py-2 rounded">Delete</button>
+                    </form>
                 </div>
             </div>
         @endforeach

@@ -8,7 +8,7 @@
     </div>
 
     <div class="max-w-lg mx-auto mt-12 p-6 rounded-lg bg-slate-100 shadow-md">
-        <form method="POST" action="{{ route('todoUpdateStore', ['todo' => $todo->id]) }}">
+        <form method="POST" action="{{ route('todoUpdateStore', $todo->id) }}">
             @csrf
             @method('PUT')
             <div class="mb-4">
@@ -23,8 +23,7 @@
             <div class="mb-6">
                 <label for="description" class="block text-lg font-medium text-gray-700">Description</label>
                 <textarea name="description" id="description" rows="4" placeholder="Description please..."
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-300">
-                    {{ $todo->description }}</textarea>
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-300">{{ $todo->description }}</textarea>
                 @error('description')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror

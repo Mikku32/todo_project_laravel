@@ -58,4 +58,11 @@ class TodoController extends Controller
         $todo->save();
         return redirect()->route('home');
     }
+
+
+    public function destroy(Todo $todo)
+    {
+        $todo->delete();
+        return redirect()->route('home');
+    }
 }
