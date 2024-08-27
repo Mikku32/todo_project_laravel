@@ -12,7 +12,7 @@
     </div>
     <div class="flex flex-col gap-4 px-3 mt-6 ">
         @foreach ($todos as $t)
-            <div onclick="window.location='{{ route('todoDetails', ['id' => $t->id]) }}'"
+            <div onclick="window.location='{{ route('todoDetails', ['todo' => $t->id]) }}'"
                 class="flex justify-between w-full rounded-xl py-2 overflow-hidden shadow-lg bg-gradient-to-r from-violet-200 to-fuchsia-200 hover:from-violet-400 hover:to-fuchsia-400">
                 <div class="flex items-center px-6 pt-4">
                     <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" {{ $t->is_completed ? 'checked' : '' }}>

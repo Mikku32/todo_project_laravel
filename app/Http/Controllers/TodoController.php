@@ -33,9 +33,9 @@ class TodoController extends Controller
         return redirect()->route('home');
     }
 
-    public function details(Request $request, $id)
+    public function details(Request $request, Todo $todo)
     {
-        $todo = Todo::findOrFail($id);
+
         return view('todos.details', compact('todo'));
     }
 }
