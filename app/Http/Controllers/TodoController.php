@@ -9,13 +9,16 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
+        $todos = Todo::latest()->get();
+
         return view('home', compact('todos'));
     }
+
     public function create()
     {
         return view('todos.create');
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -28,5 +31,11 @@ class TodoController extends Controller
 
         $todo->save();
         return redirect()->route('home');
+    }
+
+    public function details(Request $request, $id)
+    {
+        $todo = Todo::findOrFail($id);
+        return view('todos.details', compact('todo'));
     }
 }

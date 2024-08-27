@@ -1,17 +1,19 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="  py-8 px-4 min-h-screen bg-slate-300">
-    <div class="">
+<div class="  py-8 px-4 min-h-screen bg-slate-300 pb-12">
+    <div class=" flex  items-center justify-between">
         <h1 class="text-4xl font-bold mb-4">Todos</h1>
-        <a href="{{ route('todosCreate') }}"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add new</a>
+        <div>
+            <a href="{{ route('todosCreate') }}"
+                class="flex mr-4 h-10 w-10 items-center justify-center bg-gradient-to-r from-violet-300 to-fuchsia-300 hover:from-violet-500 hover:to-fuchsia-500 text-white font-bold   rounded-2xl">+</a>
+        </div>
 
     </div>
     <div class="flex flex-col gap-4 px-3 mt-6 ">
         @foreach ($todos as $t)
-            <div
-                class="flex justify-between w-full rounded-xl py-2 overflow-hidden shadow-lg bg-gradient-to-r from-violet-200 to-fuchsia-200">
+            <div onclick="window.location='{{ route('todoDetails', ['id' => $t->id]) }}'"
+                class="flex justify-between w-full rounded-xl py-2 overflow-hidden shadow-lg bg-gradient-to-r from-violet-200 to-fuchsia-200 hover:from-violet-400 hover:to-fuchsia-400">
                 <div class="flex items-center px-6 pt-4">
                     <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" {{ $t->is_completed ? 'checked' : '' }}>
                     <div class="ml-6">

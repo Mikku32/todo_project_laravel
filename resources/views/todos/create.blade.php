@@ -2,12 +2,12 @@
 
 @section('content')
 
-<div class="py-8 px-4 min-h-screen bg-slate-300">
+<div class="py-8 px-4 min-h-screen bg-gradient-to-r from-violet-300 to-fuchsia-300">
     <div class="items-center justify-center flex">
         <h1 class="text-4xl font-bold mb-4">Create New Todos</h1>
     </div>
 
-    <div class="max-w-lg mx-auto p-6 rounded-lg bg-slate-100 shadow-md">
+    <div class="max-w-lg mx-auto mt-12 p-6 rounded-lg bg-slate-100 shadow-md">
         <form method="POST" action="{{ route('todosStore') }}">
             @csrf
             <div class="mb-4">
@@ -36,7 +36,8 @@
 
             <div class="flex justify-end">
                 <button type="submit"
-                    class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md shadow-sm">Create Todo</button>
+                    class="px-4 py-2 bg-gradient-to-r from-violet-400 to-fuchsia-400 hover:from-violet-500 hover:to-fuchsia-500 text-black font-bold rounded-md shadow-sm">Create
+                    Todo</button>
             </div>
         </form>
     </div>
