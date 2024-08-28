@@ -28,13 +28,16 @@
                 @enderror
             </div>
 
-            <!-- <div class="mb-6 flex items-center">
+            <div class="mb-6 flex items-center">
                 <input type="checkbox" name="is_completed" id="is_completed"
                     class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                 <label for="is_completed" class="ml-2 block text-lg font-medium text-gray-700">Completed?</label>
-            </div> -->
+            </div>
 
-            <div class="flex justify-end">
+            <div class="flex justify-between">
+                <a href="{{ route('home') }}"
+                    class="px-4 py-2 bg-gradient-to-r from-violet-400 to-fuchsia-400 hover:from-violet-500 hover:to-fuchsia-500 text-black font-bold rounded-md shadow-sm">Back
+                    to Home</a>
                 <button type="submit"
                     class="px-4 py-2 bg-gradient-to-r from-violet-400 to-fuchsia-400 hover:from-violet-500 hover:to-fuchsia-500 text-black font-bold rounded-md shadow-sm">Create
                     Todo</button>

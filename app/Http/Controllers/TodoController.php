@@ -28,6 +28,7 @@ class TodoController extends Controller
         $todo = new Todo();
         $todo->title = $request->title;
         $todo->description = $request->description;
+        $todo->is_completed = $request->boolean('is_completed');
 
         $todo->save();
         return redirect()->route('home');
@@ -51,9 +52,11 @@ class TodoController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required'
-        ]);
 
-        $todo->update($request->all());
+        ]);
+        $todo->is_completed = $request->boolean('is_completed', false);
+
+        $todo->update($request->only(['title', 'description']));
 
         $todo->save();
         return redirect()->route('home');

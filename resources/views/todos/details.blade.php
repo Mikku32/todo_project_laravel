@@ -3,7 +3,10 @@
 @section('content')
 
 <div class="py-8 px-4 min-h-screen bg-gradient-to-r from-violet-300 to-fuchsia-300">
-    <div class="max-w-lg mx-auto p-6 rounded-lg bg-white shadow-md">
+    <div class="items-center justify-center flex">
+        <h1 class="text-4xl font-bold mb-4">Details of Todo</h1>
+    </div>
+    <div class="max-w-lg mx-auto p-6 mt-7 rounded-lg bg-white shadow-md">
         <h1 class="text-3xl font-bold mb-4">{{ $todo->title }}</h1>
 
         <div class="mb-4">
