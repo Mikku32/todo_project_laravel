@@ -34,11 +34,13 @@ class TodoController extends Controller
         return redirect()->route('home');
     }
 
-    public function details(Request $request, Todo $todo)
+    public function details(Todo $todo)
     {
 
         return view('todos.details', compact('todo'));
     }
+
+
     public function edit(Request $request, Todo $todo)
     {
         return view('todos.edit', compact('todo'));
@@ -54,7 +56,7 @@ class TodoController extends Controller
             'description' => 'required'
 
         ]);
-        $todo->is_completed = $request->boolean('is_completed', false);
+        $todo->is_completed = $request->boolean('is_completed');
 
         $todo->update($request->only(['title', 'description']));
 

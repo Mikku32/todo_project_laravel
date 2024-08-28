@@ -14,12 +14,15 @@
         @foreach ($todos as $t)
             <div onclick="window.location='{{ route('todoDetails', ['todo' => $t->id]) }}'"
                 class="flex justify-between items-center w-full rounded-xl py-2 overflow-hidden shadow-lg bg-gradient-to-r from-violet-200 to-fuchsia-200 hover:from-violet-400 hover:to-fuchsia-400">
-                <div class="flex items-center px-6 pt-4">
-                    <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" {{ $t->is_completed ? 'checked' : '' }}>
-                    <div class="ml-6">
+                <div class="flex flex-col  px-6 pt-4">
+
+                    <div class="flex  gap-3 items-center mb-6">
+                        <div class="form-checkbox h-5 w-5  "><input type="checkbox" {{ $t->is_completed ? 'checked' : '' }}>
+                        </div>
                         <div class="font-bold text-xl mb-1">{{ $t->title }}</div>
-                        <p class="text-gray-700 text-base">{{ $t->description }}</p>
+
                     </div>
+                    <p class="text-gray-700 text-base">{{ $t->description }}</p>
                 </div>
 
                 <div class="py-4  items-center flex flex-col sm:flex-row justify-end">
