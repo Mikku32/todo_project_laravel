@@ -3,7 +3,7 @@
 @section('content')
     <div
         class="flex items-center justify-center min-h-screen w-full bg-gradient-to-r from-indigo-300 via-purple-300 to-red-400">
-        <div class="px-8 py-6 mx-4 mt-4  bg-white rounded-lg shadow-md w-[50%]">
+        <div class="px-8 py-6 mx-4 mt-4  bg-white rounded-lg shadow-md w-full sm:w-[50%]">
             <h1 class="text-2xl text-center font-bold text-gray-900">Login</h1>
             <form class="mt-6 space-y-6" method="POST" action="{{ route('loginStore') }}">
                 @csrf
@@ -28,7 +28,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="mt-6 flex justify-between items-center">
+                <div class="mt-6 flex flex-col gap-1 sm:flex-row sm:justify-between items-center justify-center">
                     <button type="submit"
                         class="flex items-center justify-center px-7 py-2   text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 ">
                         Login

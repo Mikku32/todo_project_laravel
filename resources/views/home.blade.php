@@ -1,21 +1,15 @@
 @extends('layouts.app')
 @section('content')
-    <div class="py-8 px-4 min-h-screen bg-slate-300 pb-12">
+    <div class=" px-4 min-h-screen bg-slate-300 pb-12">
+
         <div class="flex px-3 items-center justify-between">
+
             <h1 class="text-4xl font-bold mb-4">Todos</h1>
-            @auth
-                <h1 class="text-4xl font-bold mb-4">Welcome, {{ Auth::user()->name }}</h1>
-            @endauth
+
             <div>
                 <a href="{{ route('todosCreate') }}"
                     class="flex  h-10 w-10 items-center justify-center bg-gradient-to-r from-violet-300 to-fuchsia-300 hover:from-violet-500 hover:to-fuchsia-500 text-black text-lg  font-bold rounded-2xl">+</a>
-                <form method="POST" action="{{ route('logout') }}" class="inline">
-                    @csrf
-                    <button type="submit"
-                        class="flex h-10 w-10 items-center justify-center bg-gradient-to-r from-violet-300 to-fuchsia-300 hover:from-violet-500 hover:to-fuchsia-500 text-black text-lg font-bold rounded-2xl">
-                        Logout
-                    </button>
-                </form>
+
 
             </div>
         </div>
