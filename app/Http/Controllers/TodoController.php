@@ -9,9 +9,10 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::latest()->get();
+        $todos = Todo::latest()->get(); //to get evry todos from database and stored in todos 
+        $user_todos = Todo::where("user_id", auth()->user()->id)->get(); //to get users todos only availbale in user_todos
 
-        return view('home', compact('todos'));
+        return view('home', compact('todos', 'user_todos'));
     }
 
     public function create()
@@ -25,9 +26,10 @@ class TodoController extends Controller
             'title' => 'required',
             'description' => 'required'
         ]);
-        $todo = new Todo();
+        $todo = new Todo(); //created an object for the model Todo named $todo
         $todo->title = $request->title;
         $todo->description = $request->description;
+        $todo->user_id = auth()->id();
         $todo->is_completed = $request->boolean('is_completed');
 
         $todo->save();
