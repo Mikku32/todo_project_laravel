@@ -9,6 +9,9 @@ class TodoController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()) {
+            return redirect()->route('login');
+        }
         $todos = Todo::latest()->get(); //to get evry todos from database and stored in todos 
         $user_todos = Todo::where("user_id", auth()->user()->id)->get(); //to get users todos only availbale in user_todos
 
