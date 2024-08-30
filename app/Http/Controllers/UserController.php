@@ -25,11 +25,16 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
+        // User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => bcrypt($request->password),
+        // ]);
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
         return redirect()->route('login')->with('success', 'Successfull');
     }
 
